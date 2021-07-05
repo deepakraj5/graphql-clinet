@@ -1,23 +1,27 @@
-import logo from './logo.svg';
+import { useQuery, gql } from '@apollo/client'
 import './App.css';
 
-function App() {
+const App = () => {
+
+  const LIST_USERS_QUERY = gql`
+        {
+          userlist {
+          username
+          email
+          }
+        }
+  `
+
+
+  const {loading, data} = useQuery(LIST_USERS_QUERY)
+
+  console.log(data)
+
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+
     </div>
   );
 }
